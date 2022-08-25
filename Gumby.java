@@ -3,11 +3,11 @@ import java.util.Scanner;
 public class Gumby {
 
     public static void main(String[] args){
-
         Scanner sc = new Scanner(System.in);
         int len = sc.nextInt();
         int threshold = sc.nextInt();
-        while (sc.hasNext()) {
+        int numTimes = sc.nextInt();
+        for (int j = 0; j < numTimes; j++){
             int i = sc.nextInt();
             int k = getK(i, len);
             int ring = getRing(i, len);
@@ -19,23 +19,11 @@ public class Gumby {
             x += ((k % 3 == 2) ? 0 : (k % 3 == 1) ? -1 : 1) * displacement;
             y += ((k % 3 == 2) ? -1 : (k % 3 == 1) ? 1 : 0) * displacement;
             if (Math.sqrt(x * x + y * y) > threshold){
-                System.out.println("He feels unsafe!");
+                System.out.println("Unsafe");
             } else {
-                System.out.println("All good!");
+                System.out.println("Safe");
             }
         }
-
-
-
-        /*
-        Scanner sc = new Scanner(System.in);
-        while (sc.hasNext()) {
-            String line = sc.nextLine();
-
-
-        }
-
-         */
     }
 
     //K is the "piece" of the ring that "n" is part of
